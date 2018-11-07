@@ -1,0 +1,90 @@
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+
+public class Challenge5Easy {
+	public static void main(String[]args){
+//		Your challenge for today is to create a program which is password protected, 
+//		and wont open unless the correct user and password is given.
+//		For extra credit, have the user and password in a seperate .txt file.
+//		for even more extra credit, break into your own program :)
+		
+		method1();
+		
+	}
+	public static void method1(){
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Please input Username");
+		String userName = keyboard.nextLine();
+		
+		System.out.println("Please input password");
+		String password = keyboard.nextLine();
+		
+		method2(userName,password);
+		
+	}
+	public static void method2(String userNameAttempt, String passwordAttempt){
+		String FileName = "C:\\Users\\Username\\Desktop\\Challenge5Easy.txt";
+		String line="";
+		String Password = "";
+		String Username = "";
+		int index = 0;
+		
+		try{
+			FileReader fileReader = new FileReader(FileName);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			
+			while((line=bufferedReader.readLine())!=null){     //Checking document for username/password
+				if(line.contains(userNameAttempt)){
+					index = line.indexOf(userNameAttempt);
+					Username = line.substring(index);
+			//		System.out.println("username: "+Username);
+			//		System.out.println("usernameAttempt: "+userNameAttempt);
+				}
+				else if(line.contains(passwordAttempt)){
+					index = line.indexOf(passwordAttempt);
+					Password = line.substring(index);
+			//		System.out.println("password: "+Password);
+			//		System.out.println("passwordAttempt: "+passwordAttempt);
+				}
+				else{
+					line = null;					
+				}
+				
+				
+			}
+			if(Username.equals(userNameAttempt) && Password.equals(passwordAttempt)){
+				System.out.println("Hello Jordan, welcome");
+			}
+			else if(Username.equals(userNameAttempt) && !Password.equals(passwordAttempt)){
+				System.out.println("Incorrect password entered");
+			}
+			else if(!Username.equals(userNameAttempt)){
+				System.out.println("Incorrect username entered");
+			}
+			
+			
+	
+			bufferedReader.close();
+			
+		}
+		catch(FileNotFoundException ex){
+			System.out.println("File Not Found");
+		}
+		catch(IOException ex1){
+			System.out.println("Error");
+		}
+		
+		
+		
+		
+		
+	}
+}
