@@ -1,0 +1,74 @@
+import java.util.Random;
+import java.util.Scanner;
+
+/**	We all know the classic "guessing game" with higher or lower prompts. lets do a role reversal; you create a program that will guess numbers between 1-100,
+and respond appropriately based on whether users say that the number is too high or too low.
+Try to make a program that can guess your number based on user input and great code!
+**/
+
+public class Challenge1Hard {
+	static Random rand = new Random();
+	static int guessNum, guessMin = 1, guessMax=101;
+	static int random;
+	static int playerNumber;
+	boolean correctGuess = false;
+	static Scanner keyboard = new Scanner(System.in);
+
+	
+	public static void main(String[]args) {
+		
+
+		operation();
+
+	}
+	
+	public static void guessing() {
+		
+		while(guessNum != playerNumber) {
+			System.out.println("Is your number lower or higher than: "+guessNum );
+			System.out.println("Please enter higher or lower");
+			
+			
+			String guess = keyboard.next();
+			if(guess.equalsIgnoreCase("higher")) {
+			
+				guessMin = guessNum;
+				
+				
+					
+				
+			}
+			else if (guess.equalsIgnoreCase("lower")) {
+				
+				guessMax = guessNum;
+			;
+		
+				
+				
+			}
+			else if(guessNum == playerNumber) {
+				
+			}
+			else
+				System.out.println("Doing nothing");
+			
+			guessNum = (guessMin + guessMax)/2;
+			}
+		System.out.println("Your number is: " +guessNum + ", I have guessed correctly");
+
+	}
+	
+	public static void operation() {
+		
+		System.out.println("What is your number?");
+		playerNumber = keyboard.nextInt();
+		
+	
+		random = rand.nextInt(100)+1;
+		guessNum = random;
+		
+		guessing();
+		
+		
+	}
+}
