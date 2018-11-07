@@ -1,0 +1,50 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Challenge3Easy {
+
+	public static void main(String[]args){
+		
+		int cipherKey = 0;
+		String message = "";
+		String encryptedMessage = "";
+		int option = 0;
+		char ch;
+		char[] charArray = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
+	            'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 
+	            'w', 'x', 'y', 'z'};
+		
+		Scanner keyboard = new Scanner(System.in);
+		Random rand = new Random();
+
+		System.out.println("1: Encrypt");
+		System.out.println("2: Decrypt");
+		
+		option = keyboard.nextInt();
+		
+		System.out.println("Please enter message to encrypt");
+		
+		message = keyboard.next();
+		cipherKey = rand.nextInt(25)+1;
+		System.out.println(cipherKey);
+		
+		for(int x =0; x < message.length(); x++){
+			
+			ch = message.charAt(x);
+			int check = 0;
+			while(ch != charArray[check]){
+				check++;		
+				
+				}
+			if(check+cipherKey >25){
+				encryptedMessage += charArray[check + cipherKey - 26];
+			}
+			else
+				encryptedMessage += charArray[check + cipherKey];
+				System.out.println(encryptedMessage);
+				
+		}
+	
+		
+	}
+}

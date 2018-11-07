@@ -1,0 +1,59 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Challenge4Easy {
+
+	public static void main(String[]args){
+		Scanner keyboard = new Scanner(System.in);
+		
+		int passwordCount = 0;
+		int passwordLength = 0;
+		
+		System.out.println("How many passwords would you like to generate?");
+		passwordCount = userInput(keyboard.nextInt());
+		System.out.println("How long would you like the password to be?");
+		passwordLength = userInput(keyboard.nextInt());
+		generator(passwordCount, passwordLength);
+		
+		
+		
+		keyboard.close();
+	}
+	
+	
+	public static void generator(int count, int length){
+		Random r = new Random();
+		String password = "";
+		
+		String abc = "abcdefghijklmnopqrstuvwxyz";
+		String ABC = abc.toUpperCase();
+		String digit = "0123456789";
+		String punct = "!@#$%^&*";
+		String AlphaNumericString = abc+ABC+digit+punct;
+		int charCounter = AlphaNumericString.length();
+		
+		
+		int y = 0;
+		for(int x=0; x<count; ++x){
+			password="";
+			y=0;
+			while(y <= length-1){
+				
+				password = password + AlphaNumericString.charAt(r.nextInt(charCounter));
+				y++;
+			}
+			System.out.println("Password #"+x+": "+password);
+			
+			
+		}
+		
+		
+	}
+	
+	public static int userInput(int x){
+		return x;
+		
+	}
+	
+
+}

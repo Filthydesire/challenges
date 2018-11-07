@@ -1,0 +1,86 @@
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+public class Challenge6Easy {
+
+	public static void main(String[]args){
+		//Approximate PI to X decimals 
+		int n = 0;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("How many decimal places would you like to calculate?");
+		//System.out.println("Please input N");
+		n = keyboard.nextInt();
+		
+		
+		pi(n);
+		
+		
+		
+	}
+	
+	public static void pi(int n){
+		
+	
+		int x=2,y=3,z=4;
+		double a =3.0, b=5.0;
+		double piTest2 = 1;
+		double piTest = 3;
+		double piTest3 =0;
+	
+		
+		double X = Math.pow(16, -n);
+		
+		BigInteger largeNumber = new BigInteger("9999999");
+		BigInteger counter = new BigInteger("0");
+		BigDecimal sumPower =BigDecimal.valueOf(X* (4/(8*n+1)-2/(8*n+4)-1/(8*n+5)-1/(8*n+6)));
+		
+		
+		
+		System.out.println(X+" " +sumPower);
+		
+	/*	while(counter.compareTo(largeNumber)!= 0){
+		
+			BigInteger bi1 = new BigInteger("1");
+			counter = counter.add(bi1);
+			System.out.println("Counter: "+counter);
+			
+			System.out.println(Math.pow(16, -n));
+			System.out.println(Math.pow(16, n));
+			System.out.println("piTest3: " + piTest3);
+			
+			try {
+				TimeUnit.SECONDS.sleep(15);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	/*		piFormula = piFormula +((1.0/(2.0*counter-1)-(1.0/(2.0*counter + 1))));
+			piTest2 = piTest2 - (1.0/a) + (1.0/b);
+			a=a+4.0;
+			b=b+4.0;
+			piTest =piTest + (4.0/(x*y*z)) - (4.0/((x+2)*(y+2)*(z+2)));
+			System.out.println(piTest +" x: "+x +" y: "+y+" z: "+z);
+
+			x=x+2;
+			y=y+2;
+			z=z+2;
+		
+		*/	
+		
+		System.out.println("PI3: "+ piTest3);
+	
+		piTest2 = piTest2*4;
+		System.out.println(piTest2 + " Test2 ");
+		System.out.println(piTest);
+	
+		
+		
+		
+		
+		
+	}
+}
