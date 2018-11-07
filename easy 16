@@ -1,0 +1,63 @@
+
+public class Challenge16Easy {
+	public static void main(String[]args){
+		String input = "Fuck Programming and time and time again this piece of shit program has GOTTEN THE BEST OF ME, but no longer.  Now I have the upper HAND AND WiLl TaKe CaRE of All of the ISSUES";
+		String delimit = "TIME";
+		input = input.replaceAll(" ", "");
+		
+		StringBuilder input2 = new StringBuilder(input);
+		
+		
+		int inputLength = 0;
+		int delimitLength = 0;
+	
+		
+		inputLength = input.length();
+		delimitLength = delimit.length();
+
+
+		System.out.println(inputLength);
+		System.out.println(delimitLength);
+		String temp = "";
+		String temp2 = "";
+		
+		// Delimit char check
+		for(int y=0; y<=delimitLength-1;y++){
+			System.out.println("Y:" + y);
+			
+			temp2= "" + delimit.charAt(y);
+			
+			
+			// input char check	
+			for(int x=0; x<=inputLength-1; x++){
+				System.out.println("temp: "+temp);
+				System.out.println("temp2:"+temp2);
+				
+				temp = "" + input.charAt(x);
+				System.out.println("X:" + x);
+				if(input.charAt(x)==delimit.charAt(y) || (temp.equalsIgnoreCase(temp2))){
+			//		input = input.replaceAll(temp2, "");
+					input2.setCharAt(x, ' ');
+					
+					
+					
+	
+					
+				}
+				
+				System.out.println(input.charAt(x));
+			}
+			System.out.println("End of X loop");
+			System.out.println(delimit.charAt(y));
+				
+				
+
+		}
+		System.out.println("End of Y loop");
+		
+		input = input2.toString();
+		input = input.replaceAll(" ", "");
+
+		System.out.println("Final String: " + input);
+	}
+}
